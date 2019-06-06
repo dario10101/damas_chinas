@@ -6,20 +6,18 @@ class Damas():
     def __init__(self, tablero):
         self.dimension = len(tablero)
         self.tablero = tablero
-        self.profundidad = 3
+        self.profundidad = 7
         
     def actions(self,lista,Jugador):
         listaHijos3=[]#movimientos sin captura
         listaHijos2=[]#movimientos capturando peon
         listaHijos1=[]#movimientos capturando dama
-        print('------------')
         for y in range(len(lista)):
             for x in range(len(lista)):
                 listaCopia = self.CopiarLista(lista)
                 pieza = lista[y][x]
-                #J U G A D O R   1
+                #Turno 1
                 if(pieza <= 2 and pieza > 0 and Jugador == 1):
-                    print("jugador 1")
                     #INFERIOR DERECHA
                     if((y+1) < len(lista) and (x+1) < len(lista)):
                         if(lista[(y+1)][(x+1)] == 0):
@@ -72,7 +70,7 @@ class Damas():
                                         listaHijos1.append(listaCopia)
                         listaCopia = self.CopiarLista(lista)
                 
-                #J U G A D O R   2
+                #Turno 2
                 if(pieza >= 3 and Jugador == 2):
                     #SUPERIOR DERECHA
                     if(((y-1) >= 0) and (x+1) < (len(lista))):
@@ -140,16 +138,13 @@ class Damas():
         
             
     def terminal_test(self, tablero, prof):
-        print("profundidad: " + str(prof))
         TerminaJuego=False
         cont_teams = self.cont_equipos(tablero)
         FichasRestantesPC= cont_teams[0]#calcular el numero de fichas del pc (1 o 2)
         FichasRestantesHumano = cont_teams[1]#calcular numero de fichas del humano (3 o 4)
         if FichasRestantesPC ==0 or FichasRestantesHumano ==0:
-            print("fichas")
             TerminaJuego = True
         if prof == self.profundidad:
-            print("prof")
             TerminaJuego = True
         return TerminaJuego
 
@@ -214,7 +209,7 @@ tab = [[1,0,1,0,1,0,1,0],
         [2,0,2,0,2,0,2,0],
         [0,2,0,2,0,2,0,2]]
 
-"""
+
 
 dm = Damas(tab)
 
@@ -226,7 +221,7 @@ for i in res:
     print("-------------- numero: " + str(cont))
 
 print(dm.cont_equipos(tab))
-
+"""
 
 
 

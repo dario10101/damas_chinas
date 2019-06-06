@@ -92,17 +92,17 @@ class App:
                     if varI == 7:
                         self.model[varI][varJ] = 4
                     else:
-                        print("no ha coronado")
+                        #print("no ha coronado")
                         self.model[varI][varJ] = 3
                     self.model[self.pos[0]][self.pos[1]] = 0
                     self.model[nodoAComer[0]][nodoAComer[1]] = 0
                     self.player = 1
                 elif(self.PuedeMoverse(movimiento) == True):
                     if varI == 0:
-                        print("coronado")
+                        #print("coronado")
                         self.model[varI][varJ] = 4
                     else:
-                        print("no ha coronado")
+                        #print("no ha coronado")
                         self.model[varI][varJ] = 3
                     self.model[self.pos[0]][self.pos[1]] = 0
                     self.player = 1
@@ -110,7 +110,7 @@ class App:
                         
             self.drawChips()
             self.varClick = 1
-        print('click: ' + str(self.varClick))
+        #print('click: ' + str(self.varClick))
         return True
 
     def  start_Game(self):

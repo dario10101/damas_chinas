@@ -7,13 +7,13 @@ class Controller:
     def __init__(self):
         self.turno=1
         self.tablero = [[1,0,1,0,1,0,1,0],
-                        [0,1,0,1,0,1,0,2],
+                        [0,1,0,1,0,1,0,1],
                         [1,0,1,0,1,0,1,0],
                         [0,0,0,0,0,0,0,0],
                         [0,0,0,0,0,0,0,0],
                         [0,3,0,3,0,3,0,3],
                         [3,0,3,0,3,0,3,0],
-                        [0,3,0,3,0,3,0,4]]
+                        [0,3,0,3,0,3,0,3]]
         self.game = Damas(self.tablero)
 
     def run(self):
@@ -21,7 +21,6 @@ class Controller:
         vista = App(root, self.tablero)
         while True:
             if(self.turno == 1):
-                print("Jugador 1")
                 vista.canvas.bind('<Button-1>', vista.handler)
                 vista.player = 2
             while True:
@@ -32,10 +31,9 @@ class Controller:
                 root.update()
             self.turno = 2
             if(self.turno == 2):
-                print("Jugador 2")
-                self.tableroActual(self.tablero)
+                #self.tableroActual(self.tablero)
                 self.tablero = self.jugadaPC(self.tablero)
-                self.tableroActual(self.tablero)
+                #self.tableroActual(self.tablero)
                 vista.setTablero(self.tablero)
                 self.turno = 1
 
