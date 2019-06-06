@@ -18,7 +18,7 @@ class Damas():
                 listaCopia = self.CopiarLista(lista)
                 pieza = lista[y][x]
                 #J U G A D O R   1
-                if(pieza <= 2 and pieza > 0):
+                if(pieza <= 2 and pieza > 0 and Jugador == 1):
                     print("jugador 1")
                     #INFERIOR DERECHA
                     if((y+1) < len(lista) and (x+1) < len(lista)):
@@ -73,7 +73,7 @@ class Damas():
                         listaCopia = self.CopiarLista(lista)
                 
                 #J U G A D O R   2
-                if(pieza >= 3):
+                if(pieza >= 3 and Jugador == 2):
                     #SUPERIOR DERECHA
                     if(((y-1) >= 0) and (x+1) < (len(lista))):
                         if(lista[(y-1)][(x+1)] == 0):
@@ -142,8 +142,9 @@ class Damas():
     def terminal_test(self, tablero, prof):
         print("profundidad: " + str(prof))
         TerminaJuego=False
-        FichasRestantesPC= 1#calcular el numero de fichas del pc (1 o 2)
-        FichasRestantesHumano = 1#calcular numero de fichas del humano (3 o 4)
+        cont_teams = self.cont_equipos(tablero)
+        FichasRestantesPC= cont_teams[0]#calcular el numero de fichas del pc (1 o 2)
+        FichasRestantesHumano = cont_teams[1]#calcular numero de fichas del humano (3 o 4)
         if FichasRestantesPC ==0 or FichasRestantesHumano ==0:
             print("fichas")
             TerminaJuego = True
@@ -176,15 +177,31 @@ class Damas():
         ListaCopia=[x[:] for x in lista]
         return ListaCopia
 
+    def cont_equipos(self,tablero):
+        cont1 = 0
+        cont2 = 0
+        for i in range(len(tablero)):
+            for j in range(len(tablero)):
+                dato = tablero[i][j]
+                if dato > 0 and dato <= 2:
+                    cont1 = cont1 + 1
+                elif dato >= 3:
+                    cont2 = cont2 + 1
 
-tab = [[1,0,1,0,1,0,1,0],
+        return (cont1,cont2)
+                    
+        
+
+    
+
+tab = [[1,0,1,0,1,0,2,0],
        [0,1,0,1,0,1,0,1],
        [1,0,1,0,1,0,1,0],
        [0,0,0,0,0,0,0,0],
        [0,0,0,0,0,0,0,0],
        [0,3,0,3,0,3,0,3],
        [3,0,3,0,3,0,3,0],
-       [0,3,0,3,0,3,0,3]]
+       [0,3,0,3,0,3,0,4]]
 
 
 """
@@ -201,12 +218,14 @@ tab = [[1,0,1,0,1,0,1,0],
 
 dm = Damas(tab)
 
-res = dm.actions(tab,1)
+res = dm.actions(tab,2)
 cont = 0
 for i in res:
     cont = cont + 1
     print(i)
     print("-------------- numero: " + str(cont))
+
+print(dm.cont_equipos(tab))
 
 
 
