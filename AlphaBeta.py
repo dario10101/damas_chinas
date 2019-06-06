@@ -1,7 +1,7 @@
 import math
         
 def max_value(state,game, alpha, beta, profundidad):
-    profundidad +=1
+    profundidad = profundidad + 1
     if game.terminal_test(state,profundidad):
         return game.utility(state)
     v = -math.inf
@@ -13,11 +13,11 @@ def max_value(state,game, alpha, beta, profundidad):
     return v
 
 def min_value(state,game, alpha, beta, profundidad):
-    profundidad += 1
+    profundidad = profundidad + 1
     if game.terminal_test(state,profundidad):
         return game.utility(state)
     v = math.inf
-    for a in game.actions(state):
+    for a in game.actions(state,2):
         v = min(v, max_value(a,game, alpha, beta, profundidad))
         if v <= alpha:
             return v
