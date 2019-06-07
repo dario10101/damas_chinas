@@ -151,17 +151,17 @@ class Damas():
 
 
     def utility(self, tablero):
-        incremento=20
+        incremento = 20
         pesoFichasPc = 0
         pesoFichasHumano = 0
         tamTablero = len(tablero)
         for i in range(len(tablero)):
             for j in range(len(tablero)):
-                if (tablero[i][j]==1):
+                if (tablero[i][j] > 0 and tablero[i][j] <= 2):
                     pesoFichasPc = pesoFichasPc + ((i+1)*incremento)
         for i in range(len(tablero)):
             for j in range(len(tablero)):
-                if (tablero[i][j]==2):
+                if (tablero[i][j] >= 3):
                         pesoFichasHumano=pesoFichasHumano+(tamTablero*incremento)
             tamTablero=tamTablero-1
         return pesoFichasPc - pesoFichasHumano
