@@ -1,6 +1,6 @@
 Parcial 1 de Inteligencia artificial 
 
-Algoritmo A estrella para el juego de Damas chinas
+Algoritmo Alpha Beta para el juego de Damas chinas
 
 Integrantes:
 
