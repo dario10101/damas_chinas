@@ -7,5 +7,5 @@ implementacion del algoritmo Alpha Beta para el juego de Damas chinas
 
 Integrantes:
 
-Luisa Fernanda Gomez
+Luisa Fernanda Gomez,
 Ruben Dario Dorado
