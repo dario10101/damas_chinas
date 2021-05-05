@@ -1,9 +1,6 @@
 Universidad del Cauca
 
-Curso: 
-Inteligencia artificial 
-
-implementacion del algoritmo Alpha Beta para el juego de Damas chinas
+implementacion del algoritmo Alpha Beta para el juego de Damas chinas, durante el desarrollo del curso de Inteligencia artificial.
 
 Integrantes:
 
