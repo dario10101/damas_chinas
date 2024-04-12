@@ -48,5 +48,7 @@ class Controller:
     def jugadaPC(self, state):
         return alphabeta_search(self.tablero, self.game)
 
-play = Controller()
-play.run()
+
+if __name__ == "__main__":
+    play = Controller()
+    play.run()
